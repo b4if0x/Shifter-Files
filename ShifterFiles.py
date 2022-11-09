@@ -3,6 +3,7 @@ import os
 from os.path import isfile, join
 import random, string
 
+"""Declaramos las funciones principales"""
 
 def limpiar():
     if os.name == "posix":
@@ -56,6 +57,5 @@ def iniciando():
             exit
         case _:
             iniciando()
-
-
+"""Lanzamos el programa"""            
 iniciando()
