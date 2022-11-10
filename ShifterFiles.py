@@ -3,7 +3,7 @@ import os
 from os.path import isfile, join
 import random, string
 
-"""Declaramos las funciones principales"""
+"""Declaring functions"""
 
 def limpiar():
     if os.name == "posix":
@@ -31,31 +31,36 @@ def presentacion():
     limpiar()
     print("****************************************") 
     print("*                                      *")
-    print("*        Mover todo a la raiz          *")
+    print("*        Moving to Root Patch          *")
     print("*                                      *")
     print("****************************************")
     target = input("Introduce ruta: ")   
-    contador, contadorOmitidos=cambiador(target)     
-    print('Ficheros totales: ',contador, ' Omitidos: ', contadorOmitidos, ' Movidos: ', contador-contadorOmitidos)        
+    if os.path.exists(target):
+        contador, contadorOmitidos=cambiador(target)     
+        print('Total: ',contador, ' Omitted: ', contadorOmitidos, ' Moved: ', contador-contadorOmitidos)
+    else:
+        print('The patch does not exist. Try again pressing a key.')
+        input()
+        presentacion()
 
 def iniciando():
     limpiar()
     print("****************************************") 
     print("*                                      *")
-    print("*           Shifter Files v1           *")
+    print("*           Shifter Files v1.1         *")
     print("*                                      *")
     print("****************************************")
-    print("1-Mover ficheros a raíz")
-    print("2-Salir del programa")
+    print("1-Move files to root")
+    print("2-Exit")
     print(" ")
-    opcion=input("Selecciona una opcion [1 o 2]: ")
+    opcion=input("Choose a option [1 or 2]: ")
     match opcion:
         case "1":  
             presentacion()
         case "2":
-            print("-Saliendo del programa-")
+            print("-Leaving the program-")
             exit
         case _:
             iniciando()
-"""Lanzamos el programa"""            
+"""Launching main function"""            
 iniciando()
