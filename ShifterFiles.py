@@ -34,14 +34,14 @@ def presentacion():
     print("*        Moving to Root Patch          *")
     print("*                                      *")
     print("****************************************")
-    target = input("Introduce ruta: ")   
+    target = input("Target directory: ")   
     if os.path.exists(target):
         contador, contadorOmitidos=cambiador(target)     
         print('Total: ',contador, ' Omitted: ', contadorOmitidos, ' Moved: ', contador-contadorOmitidos)
     else:
-        print('The patch does not exist. Try again pressing a key.')
+        print('The directory is invalid. Try again pressing a key.')
         input()
-        presentacion()
+        iniciando()
 
 def iniciando():
     limpiar()
